@@ -6,6 +6,9 @@
     <title>Ingredients Pop</title>
 </head>
 <body>
-    <p>{{ response }}</p>
+    {% block content %}
+    <h1>{{name}}</h1>
+    {{data | safe}}
+    {% endblock %}
 </body>
 </html>
