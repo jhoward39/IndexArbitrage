@@ -3,7 +3,8 @@
 ## Overview
 This dashboard predicts the x number of stocks that are likely to get removed from the S&P 500 due to a lowering of market capitalization, as well as all stocks that qualify to be added to the index. It is a common strategy among hedge funds to predict what stocks are likely to be added or subtracted in order to place trades around those stocks. In recent years has not been as fruitful as it once was. 
 
-<img width="866" alt="Screenshot 2023-09-22 at 10 13 56 AM" src="https://github.com/jhoward39/IndexArbitrage/assets/70383367/6cbffe6b-7a50-4077-9b35-ad3dfded9bfd">
+<img width="884" alt="Screenshot 2023-09-22 at 10 21 08 AM" src="https://github.com/jhoward39/IndexArbitrage/assets/70383367/a9575054-cb75-4c41-a6da-f217ab73063e">
+
 
 ## Methodlogy 
 The decision to remove a stock from the index is made by a committee. So while it is a rule that stocks have to meet a threshold to be added, stocks that are already in the S&P 500 that fall below the threshold do not get automatically removed.
