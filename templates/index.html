@@ -3,12 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingredients Pop</title>
+    <title>Joseph Howard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    {% block content %}
-    <h1>{{name}}</h1>
-    {{data | safe}}
-    {% endblock %}
+    <div class="background-video">
+        <video autoplay muted loop id="backgroundVideo">
+            <source src="{{ url_for('static', filename='galaxy.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1>Index Arbitrage Dashboard</h1>
+            <a href="{{ url_for('static', filename='README.md') }}" class="btn"><p>README</p></a>
+        </div>
+    </nav>
+
+    <p class="last_updated">Last Updated: {{ last_updated }}</p>
+    <div class="content">
+        <p>These {{ stocks_in_danger | length }} S&P 500 Stocks Are In Danger of Being Removed From the Index Soon</p>
+        <!-- Display the list of stocks in danger of being removed -->
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Stock Name</th>
+                    <th>Reason</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks_in_danger %}
+                <tr>
+                    <td>{{ stock.name }}</td>
+                    <td>{{ stock.reason }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+        <p>These {{ y }} stocks could be added to the S&P 500 Soon</p>
+        <!-- Display the list of stocks that could be added -->
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Stock Name</th>
+                    <th>Reason</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks_to_add %}
+                <tr>
+                    <td>{{ stock.name }}</td>
+                    <td>{{ stock.reason }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+        <!-- Disclaimer -->
+    </div>
+    <p class="disclaimer">**This is not investment advice**</p>
 </body>
 </html>
