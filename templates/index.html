@@ -16,47 +16,38 @@
     <nav class="navbar">
         <div class="nav-content">
             <h1>Index Arbitrage Dashboard</h1>
-            <a href="{{ url_for('static', filename='README.md') }}" class="btn"><p>README</p></a>
+            <a class="button" href="https://github.com/jhoward39/IndexArbitrage/blob/main/README.md" target="_blank">README</a>
         </div>
     </nav>
 
     <p class="last_updated">Last Updated: {{ last_updated }}</p>
     <div class="content">
-        <p>These {{ stocks_in_danger | length }} S&P 500 Stocks Are In Danger of Being Removed From the Index Soon</p>
-        <!-- Display the list of stocks in danger of being removed -->
-    
-        <table>
+        <table class="possible_removals">
             <thead>
                 <tr>
-                    <th>Stock Name</th>
-                    <th>Reason</th>
+                    <th>Stock(s) That Might Be Removed From the S&P 500</th>
                 </tr>
             </thead>
             <tbody>
                 {% for stock in stocks_in_danger %}
                 <tr>
-                    <td>{{ stock.name }}</td>
-                    <td>{{ stock.reason }}</td>
+                    <td>{{ stock }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-    
-        <p>These {{ y }} stocks could be added to the S&P 500 Soon</p>
         <!-- Display the list of stocks that could be added -->
     
-        <table>
+        <table class="possible_additions">
             <thead>
                 <tr>
-                    <th>Stock Name</th>
-                    <th>Reason</th>
+                    <th>Stock(s) That Might Be Added To The S&P 500</th>
                 </tr>
             </thead>
             <tbody>
                 {% for stock in stocks_to_add %}
                 <tr>
-                    <td>{{ stock.name }}</td>
-                    <td>{{ stock.reason }}</td>
+                    <td>{{ stock }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

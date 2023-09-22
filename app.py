@@ -8,7 +8,6 @@ app = flask.Flask(__name__)
 @app.route('/')
 def index():
    print('Request for index page received')
-   # stock = get_ticker('AAPL')
    return flask.render_template('index.html', 
             stocks_in_danger = ['AAPL'],
             stocks_to_add = ['NOK'],
@@ -23,4 +22,4 @@ def get_ticker(ticker):
 
 
 if __name__ == '__main__':
-   app.run()
+   app.run(port=8000)
