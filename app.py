@@ -1,6 +1,4 @@
-import requests
 import flask
-import pandas
 import yfinance as yf
 
 app = flask.Flask(__name__)
@@ -22,4 +20,4 @@ def get_ticker(ticker):
 
 
 if __name__ == '__main__':
-   app.run(port=8000)
+   app.run()
