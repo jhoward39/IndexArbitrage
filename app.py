@@ -11,13 +11,5 @@ def index():
             stocks_to_add = ['NOK'],
             last_updated = "10/25/2000")
 
-def get_ticker(ticker):
-   ticker = [ticker]
-   # start = datetime.datetime(2020, 1, 1)
-   # end = datetime.datetime(2022, 1, 1)
-   data = yf.download(ticker)
-   return data
-
-
 if __name__ == '__main__':
    app.run()
