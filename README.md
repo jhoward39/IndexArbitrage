@@ -9,7 +9,7 @@ This dashboard displays stocks that are likely to get removed from the S&P 500 d
 ## Methodlogy 
 The decision to add or remove a stock from the index is made by a committee. This committee is employed by the S&P Dow Jones Indices LLC. The methodology behind this strategy is that if a stock is removed from S&P 500 the shares sold by the many funds that track the index moves the price down. If a stock is added, the buy orders that many funds have to make raise the price significantly. 
 
-This is the committee's most recent update to the criteria for entry into the S&P 500:\n
+This is the committee's most recent update to the criteria for entry into the S&P 500:<br>
 "In consideration of overall market conditions, the Index Committee believes a minimum threshold of $14.6 billion for the S&P 500 is appropriate. These ranges are reviewed quarterly and updated as needed to assure consistency with market conditions. A company meeting the unadjusted company market capitalization criteria must also have a security level float-adjusted market capitalization that is at least 50% of the respective index's unadjusted company level minimum market capitalization threshold.
 
 As a reminder, the market capitalization eligibility criteria are for addition to an index, not for continued membership. As a result, an index constituent that appears to violate criteria for addition to that index is not removed unless ongoing conditions warrant an index change."
