@@ -23,4 +23,8 @@ There are other reasons that stocks can get removed from the S&P, usually merger
 In the future, I would like to do an in-depth study of the history of companies that have been removed from the S&P for market capitalization reasons to possibly make this more accurate. 
 
 ## Notes
-An index is just a basket of stocks, it does not become investable until a financial product is created that tracks the index. 
+An index is just a basket of stocks, it does not become investable until a financial product is created that tracks the index.
+There is no wikipedia page for the S&P Total Market Index while there is one for every other index
+It is harder than you'd think to get a complete, accurate, and up-to-date list of index constituents.
+
+
