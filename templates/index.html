@@ -22,37 +22,56 @@
 
     <p class="last_updated">Last Updated: {{ last_updated }}</p>
     <div class="content">
-        <table class="possible_removals">
+        <table class="toggletable">
             <thead>
                 <tr>
                     <th>Stock(s) That Might Be Removed From the S&P 500</th>
+                    <th>Marketcap</th>
                 </tr>
             </thead>
             <tbody>
                 {% for stock in stocks_in_danger %}
                 <tr>
-                    <td>{{ stock }}</td>
+                    <td>{{ stock.ticker }}</td>
+                    <td>{{ "${:,.2f}".format(stock.marketcap) }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         <!-- Display the list of stocks that could be added -->
     
-        <table class="possible_additions">
+        <table class="toggletable">
             <thead>
                 <tr>
                     <th>Stock(s) That Might Be Added To The S&P 500</th>
+                    <th>Marketcap</th>
                 </tr>
             </thead>
             <tbody>
                 {% for stock in stocks_to_add %}
                 <tr>
-                    <td>{{ stock }}</td>
+                    <td>{{ stock.ticker }}</td>
+                    <td>{{ "${:,.2f}".format(stock.marketcap) }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-    
+        <button id="showAllButton">Show All</button>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const tables = document.querySelectorAll('.toggletable');
+                const changeStateButton = document.getElementById('showAllButton');
+
+                function toggleState() {
+                    tables.forEach(table => {
+                        table.classList.toggle('active');
+                    });
+                }
+
+                // Add a click event listener to the button
+                changeStateButton.addEventListener('click', toggleState);
+            });
+        </script>
         <!-- Disclaimer -->
     </div>
     <p class="disclaimer">**This is not investment advice**</p>

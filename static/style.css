@@ -22,7 +22,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     max-width: 100%;
-    max-height: 20%;
+    max-height: 25%;
     top: 0;
     left: 0;
     right: 0;
@@ -100,8 +100,30 @@ th,td {
 th {
     background-color: rgba(255, 255, 255, 0.7)
 }
+
+.toggletable tbody tr:nth-child(n+5){
+    display: none;
+}
+
+.toggletable.active tbody > tr{
+    display: table-row;
+}
+
+/* Style the "Show More" button */
+#showAllButton {
+    display: block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #373838;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+}
+
 .disclaimer {
     margin: 25px;
+    padding: 10px;
     font-size: 14px;
     color: #f2f2f2;
 }
