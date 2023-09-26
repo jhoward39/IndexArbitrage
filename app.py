@@ -1,5 +1,6 @@
 import flask
 import psycopg2
+from psycopg2 import extras
 
 app = flask.Flask(__name__)
 
@@ -15,7 +16,7 @@ def index():
 def get_sp_500_tickers_in_danger():
    try:
       conn = psycopg2.connect(**db_config)
-      cursor = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+      cursor = conn.cursor(cursor_factory=extras.RealDictCursor)
       sql_query = "select * from tbTickerToMarketcap where SP500mmbr = true and marketcap < 10000000000 order by marketcap"
 
       cursor.execute(sql_query)
