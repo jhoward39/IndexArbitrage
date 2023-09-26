@@ -26,12 +26,14 @@
             <thead>
                 <tr>
                     <th>Stock(s) That Might Be Removed From the S&P 500</th>
+                    <th> Marketcap</th>
                 </tr>
             </thead>
             <tbody>
                 {% for stock in stocks_in_danger %}
                 <tr>
-                    <td>{{ stock }}</td>
+                    <td>{{ stock.ticker }}</td>
+                    <td>{{ stock.marketcap }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -42,12 +44,14 @@
             <thead>
                 <tr>
                     <th>Stock(s) That Might Be Added To The S&P 500</th>
+                    <th> Marketcap</th>
                 </tr>
             </thead>
             <tbody>
                 {% for stock in stocks_to_add %}
                 <tr>
-                    <td>{{ stock }}</td>
+                    <td>{{ stock.ticker }}</td>
+                    <td>{{ stock.marketcap }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -59,5 +63,11 @@
     <div class="bottom-bar">
         <p>&copy; Joseph Howard</p>
     </div>
+    <script>
+        function expandTable(tableName) {
+            const table = document.querySelector(`.${tableName}`);
+            table.classList.toggle('expanded');
+        }
+    </script>
 </body>
 </html>
