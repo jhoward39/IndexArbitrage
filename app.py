@@ -62,4 +62,4 @@ if __name__ == '__main__':
     "database": "dbSPTMI",
     "port": 5432
    }
-   app.run(port=8000)
+   app.run()
