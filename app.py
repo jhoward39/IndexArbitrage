@@ -8,10 +8,11 @@ app = flask.Flask(__name__)
 def index():
    print('Request for index page received')
 
-   dummy = [{'ticker':'apple','marketcap':100000}]
-   #get_sp_500_tickers_in_danger(),
-   #get_rising_non_sp_500_tickers(),
-   return flask.render_template('index.html', stocks_in_danger = dummy, stocks_to_add = dummy, last_updated = "09/26/2023")
+   # dummy = [{'ticker':'apple','marketcap':100000}]
+
+   return flask.render_template('index.html', stocks_in_danger = get_sp_500_tickers_in_danger(),
+                                 stocks_to_add = get_rising_non_sp_500_tickers(), 
+                                 last_updated = "09/26/2023")
 
 def get_sp_500_tickers_in_danger():
    try:
