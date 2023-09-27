@@ -18,7 +18,7 @@ def get_sp_500_tickers_in_danger():
    sql_query = "select * from tbTickerToMarketcap where SP500mmbr = true and marketcap < 10000000000 order by marketcap"
    data = read_database(sql_query)
    if not data:
-      return ["bad connection to database"]
+      return [{"stock":"bad connection to database","marketcap":"$0.00"}]
    else: 
       return data
 
@@ -26,13 +26,20 @@ def get_rising_non_sp_500_tickers():
    sql_query = "select * from tbTickerToMarketcap where SP500mmbr = false and marketcap > 14000000000 order by marketcap desc"
    data = read_database(sql_query)
    if not data:
-      return ["bad connection to database"]
+      return [{"stock":"bad connection to database","marketcap":"$0.00"}]
    else: 
       return data
 
 def read_database(sql_query):
    cursor = None
    conn = None
+   db_config = {
+   "user": "woody",
+    "password": "Thereisasnakeinmyboot1!",
+    "host": "indexarb-server.postgres.database.azure.com",
+    "database": "dbSPTMI",
+    "port": 5432
+   }
    try:
       conn = psycopg2.connect(**db_config)
       cursor = conn.cursor(cursor_factory=extras.RealDictCursor)
@@ -53,11 +60,4 @@ def read_database(sql_query):
          conn.close()
 
 if __name__ == '__main__':
-   db_config = {
-   "user": "woody",
-    "password": "Thereisasnakeinmyboot1!",
-    "host": "indexarb-server.postgres.database.azure.com",
-    "database": "dbSPTMI",
-    "port": 5432
-   }
    app.run()
