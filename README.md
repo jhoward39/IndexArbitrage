@@ -6,8 +6,8 @@ This dashboard displays stocks that are likely to get removed from the S&P 500 d
 <img width="700" alt="Screenshot 2023-09-22 at 8 00 03 PM" src="https://github.com/jhoward39/IndexArbitrage/assets/70383367/a1910c95-ff45-4d75-8668-e847d8550602">
 
 
-## Methodlogy 
-The decision to add or remove a stock from the index is made by a committee. This committee is employed by the S&P Dow Jones Indices LLC. The methodology behind this strategy is that if a stock is removed from S&P 500 the shares sold by the many funds that track the index moves the price down. If a stock is added, the buy orders that many funds have to make raise the price significantly. 
+## Methodology 
+The decision to add or remove a stock from the index is made by a committee. This committee is employed by the S&P Dow Jones Indices LLC. The methodology behind this strategy is that if a stock is removed from S&P 500 the selling of shares by the many funds that track the index moves the price down. If a stock is added, the buy orders that many funds have to make raise the price significantly. 
 
 This is the committee's most recent update to the criteria for entry into the S&P 500:<be>
 >In consideration of overall market conditions, the Index Committee believes a minimum threshold of $14.6 billion for the S&P 500 is appropriate. These ranges are reviewed >quarterly and updated as needed to assure consistency with market conditions. A company meeting the unadjusted company market capitalization criteria must also have a >security level float-adjusted market capitalization that is at least 50% of the respective index's unadjusted company level minimum market capitalization threshold.
