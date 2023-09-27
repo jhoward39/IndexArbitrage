@@ -16,11 +16,19 @@ def index():
 
 def get_sp_500_tickers_in_danger():
    sql_query = "select * from tbTickerToMarketcap where SP500mmbr = true and marketcap < 10000000000 order by marketcap"
-   return read_database(sql_query)
+   data = read_database(sql_query)
+   if not data:
+      return ["bad connection to database"]
+   else: 
+      return data
 
 def get_rising_non_sp_500_tickers():
    sql_query = "select * from tbTickerToMarketcap where SP500mmbr = false and marketcap > 14000000000 order by marketcap desc"
-   return read_database(sql_query)
+   data = read_database(sql_query)
+   if not data:
+      return ["bad connection to database"]
+   else: 
+      return data
 
 def read_database(sql_query):
    cursor = None
