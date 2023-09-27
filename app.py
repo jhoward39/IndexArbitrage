@@ -18,7 +18,7 @@ def get_sp_500_tickers_in_danger():
    sql_query = "select * from tbTickerToMarketcap where SP500mmbr = true and marketcap < 10000000000 order by marketcap"
    data = read_database(sql_query)
    if not data:
-      return [{"stock":"bad connection to database","marketcap":"$0.00"}]
+      return [{"stock":"bad connection to database","marketcap":0}]
    else: 
       return data
 
@@ -26,7 +26,7 @@ def get_rising_non_sp_500_tickers():
    sql_query = "select * from tbTickerToMarketcap where SP500mmbr = false and marketcap > 14000000000 order by marketcap desc"
    data = read_database(sql_query)
    if not data:
-      return [{"stock":"bad connection to database","marketcap":"$0.00"}]
+      return [{"stock":"bad connection to database","marketcap":0}]
    else: 
       return data
 
