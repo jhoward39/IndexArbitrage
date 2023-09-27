@@ -24,6 +24,7 @@ def get_rising_non_sp_500_tickers():
 
 def read_database(sql_query):
    cursor = None
+   conn = None
    try:
       conn = psycopg2.connect(**db_config)
       cursor = conn.cursor(cursor_factory=extras.RealDictCursor)
