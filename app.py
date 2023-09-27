@@ -15,32 +15,18 @@ def index():
                                  last_updated = "09/26/2023")
 
 def get_sp_500_tickers_in_danger():
-   try:
-      conn = psycopg2.connect(**db_config)
-      cursor = conn.cursor(cursor_factory=extras.RealDictCursor)
-      sql_query = "select * from tbTickerToMarketcap where SP500mmbr = true and marketcap < 10000000000 order by marketcap"
-
-      cursor.execute(sql_query)
-
-      # Fetch all the rows from the result set as dictionaries
-      rows = cursor.fetchall()
-
-      # Process the data (access columns by name)
-      return rows # Access 'sp500mmbr' column
-
-   except Exception as e:
-      print(f"Error: {e}")
-
-   finally:
-      cursor.close()
-      conn.close()
+   sql_query = "select * from tbTickerToMarketcap where SP500mmbr = true and marketcap < 10000000000 order by marketcap"
+   return read_database(sql_query)
 
 def get_rising_non_sp_500_tickers():
+   sql_query = "select * from tbTickerToMarketcap where SP500mmbr = false and marketcap > 14000000000 order by marketcap desc"
+   return read_database(sql_query)
+
+def read_database(sql_query):
+   cursor = None
    try:
       conn = psycopg2.connect(**db_config)
       cursor = conn.cursor(cursor_factory=extras.RealDictCursor)
-      sql_query = "select * from tbTickerToMarketcap where SP500mmbr = false and marketcap > 14000000000 order by marketcap desc"
-
       cursor.execute(sql_query)
 
       # Fetch all the rows from the result set as dictionaries
@@ -52,8 +38,10 @@ def get_rising_non_sp_500_tickers():
       print(f"Error: {e}")
 
    finally:
-      cursor.close()
-      conn.close()
+      if cursor:
+         cursor.close()
+      if conn:
+         conn.close()
 
 if __name__ == '__main__':
    db_config = {
