@@ -3,8 +3,6 @@
 ## Overview
 This dashboard displays stocks that are likely to get removed from the S&P 500 due to a lowering of market capitalization, as well as all stocks that qualify to be added to the index. It is a common strategy among hedge funds to predict what stocks are likely to be added or subtracted in order to place trades around those stocks. In recent years this strategy has not been as fruitful as it once was. 
 
-<img width="943" alt="Screenshot 2023-09-22 at 10 38 14 AM" src="https://github.com/jhoward39/IndexArbitrage/assets/70383367/f30751fb-9511-42ab-9a9a-0736a026f7b9">
-
 
 ## Methodology 
 The methodology behind this strategy is that if a stock is removed from S&P 500 the selling of shares by the many funds that track the index moves the price down. If a stock is added, the buy orders that many funds have to make raise the price significantly. The decision to add or remove a stock from the index is made by a committee. This committee is employed by the S&P Dow Jones Indices LLC. 
