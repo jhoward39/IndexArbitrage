@@ -23,6 +23,5 @@ In the future, I would like to do an in-depth study of the history of companies 
 ## Notes
 An index is just a basket of stocks, it does not become investable until a financial product is created that tracks the index.
 There is no wikipedia page for the S&P Total Market Index while there is one for every other index
-It is harder than you'd think to get a complete, accurate, and up-to-date list of index constituents.
 
 
