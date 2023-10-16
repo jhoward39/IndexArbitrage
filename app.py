@@ -12,8 +12,7 @@ def index():
    # dummy = [{'ticker':'apple','marketcap':100000}]
 
    return flask.render_template('index.html', stocks_in_danger = get_sp_500_tickers_in_danger(),
-                                 stocks_to_add = get_rising_non_sp_500_tickers(), 
-                                 last_updated = "09/26/2023")
+                                 stocks_to_add = get_rising_non_sp_500_tickers())
 
 def get_sp_500_tickers_in_danger():
    sql_query = "select * from tbTickerToMarketcap where SP500mmbr = true and marketcap < 10000000000 order by marketcap"
