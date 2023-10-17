@@ -6,6 +6,15 @@
     <title>Index Arbitrage</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='bull.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="{{ url_for('static', filename='chart.js') }}"></script>
+    <script>
+        const stockData = {{ ticker_to_history|safe }};
+        let dateAddedToSP = "";
+        let containerId = "";
+        let data = [];
+    </script>
+
 </head>
 <body>
     <div class="background-video">
@@ -24,15 +33,27 @@
         <table class="toggletable">
             <thead>
                 <tr>
-                    <th>Stock(s) That Might Be Removed From the S&P 500</th>
+                    <th>Tickers That Might Be Removed From the S&P 500</th>
+                    <th>Name</th>
                     <th>Marketcap</th>
+                    <th>Price History (Vertical Line Shows Date Added To S&P 500)</th>
                 </tr>
             </thead>
             <tbody>
                 {% for stock in stocks_in_danger %}
                 <tr>
                     <td>{{ stock.ticker }}</td>
+                    <td>{{ stock.companyname }}</td>
                     <td>{{ "${:,.2f}".format(stock.marketcap) }}</td>
+                    <td>
+                        <div class="chart-container" id="{{ stock.ticker }}"></div>
+                    </td>
+                    <script> 
+                        dateAddedToSP = "{{ stock.dateadded }}";
+                        containerId = "{{ stock.ticker }}"; 
+                        data = stockData[containerId.trim()]
+                        renderStockChart(dateAddedToSP, data, containerId); 
+                    </script>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -42,15 +63,27 @@
         <table class="toggletable">
             <thead>
                 <tr>
-                    <th>Stock(s) That Might Be Added To The S&P 500</th>
+                    <th>Tickers That Might Be Added To The S&P 500</th>
+                    <th>Name</th>
                     <th>Marketcap</th>
+                    <th>Price History</th>
                 </tr>
             </thead>
             <tbody>
                 {% for stock in stocks_to_add %}
                 <tr>
                     <td>{{ stock.ticker }}</td>
+                    <td>{{ stock.companyname }}</td>
                     <td>{{ "${:,.2f}".format(stock.marketcap) }}</td>
+                    <td>
+                        <div class="chart-container" id="{{ stock.ticker }}"></div>
+                    </td>
+                    <script>
+                        dateAddedToSP = "1904-01-01";
+                        containerId = "{{ stock.ticker }}";
+                        data = stockData[containerId.trim()]
+                        renderStockChart(dateAddedToSP, data, containerId); 
+                    </script>
                 </tr>
                 {% endfor %}
             </tbody>
