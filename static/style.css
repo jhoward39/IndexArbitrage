@@ -21,7 +21,7 @@
 .navbar {
     background-color: rgba(0, 0, 0, 0.5);
     position: relative;
-    min-width: 870px;
+    min-width: 920px;
     max-height: 23%;
     top: 0;
     left: 0;
@@ -41,7 +41,6 @@ a.button {
     padding: 12px;
     background-color: rgba(242, 242, 242, 0.3);
     color: #fff;
-    text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     font-family: 'Courier New', monospace;
@@ -104,8 +103,6 @@ th {
 
 .link-text {
     color: black;
-    /* You can replace "red" with your desired color */
-    /* You can use color names, HEX codes, or RGB values for the color property. */
 }
 
 .toggletable tbody tr:nth-child(n+5){
