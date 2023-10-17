@@ -42,7 +42,7 @@
             <tbody>
                 {% for stock in stocks_in_danger %}
                 <tr>
-                    <td>{{ stock.ticker }}</td>
+                    <td><a href="https://finance.yahoo.com/quote/{{ stock.ticker|trim }}?p={{ stock.ticker|trim }}&.tsrc=fin-srch" class="link-text">{{ stock.ticker }}</a></td>
                     <td>{{ stock.companyname }}</td>
                     <td>{{ "${:,.2f}".format(stock.marketcap) }}</td>
                     <td>
@@ -72,7 +72,9 @@
             <tbody>
                 {% for stock in stocks_to_add %}
                 <tr>
-                    <td>{{ stock.ticker }}</td>
+                    <td>
+                        <a href="https://finance.yahoo.com/quote/{{ stock.ticker|trim }}?p={{ stock.ticker|trim }}&.tsrc=fin-srch" class="link-text">{{stock.ticker }}</a>
+                    </td>
                     <td>{{ stock.companyname }}</td>
                     <td>{{ "${:,.2f}".format(stock.marketcap) }}</td>
                     <td>
