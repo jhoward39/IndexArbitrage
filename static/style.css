@@ -3,7 +3,8 @@
     src: url("Moondance.woff") format("woff"), url("Moondance.ttf") format("truetype");
 }
 
-.background-video {
+.background {
+    background-image: linear-gradient(to bottom right, navy, rgb(101, 26, 26));
     position: fixed;
     top: 0;
     left: 0;
@@ -12,7 +13,7 @@
     z-index: -1;
 }
 
-.background-video video {
+.background {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
