@@ -20,7 +20,7 @@
 }
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0);
     position: relative;
     min-width: 920px;
     max-height: 23%;
@@ -77,7 +77,6 @@ h1 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0);
     position: relative;
-    /* Added to position the tooltip */
 }
 
 p {
@@ -89,7 +88,9 @@ table {
     width: 100%;
     margin-top: 20px;
     padding: 20px;
-    border-collapse: collapse;
+    overflow-y:scroll;
+    height: 400px;
+    display: block;
 }
 th,td {
     border: 1px solid black;
@@ -106,14 +107,6 @@ th {
     color: black;
 }
 
-.toggletable tbody tr:nth-child(n+5){
-    display: none;
-}
-
-.toggletable.active tbody > tr{
-    display: table-row;
-}
-
 /* Style the "Show More" button */
 #showAllButton {
     display: block;
@@ -127,7 +120,7 @@ th {
 }
 
 .bottom-bar {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0);
     color: #fff;
     padding: 8px 0;
     position: fixed;
