@@ -1,11 +1,13 @@
 # IndexArbitrage
 
 ## Overview
-This dashboard displays stocks that are likely to get removed from the S&P 500 due to a lowering of market capitalization, as well as all stocks that qualify to be added to the index. It is a common strategy among hedge funds to predict what stocks are likely to be added or subtracted in order to place trades around those stocks. In recent years this strategy has not been as fruitful as it once was. 
+This dashboard displays stocks that are likely to get removed from the S&P 500 due to a lowering of market capitalization. It is a common strategy among hedge funds to predict what stocks are likely to be removed from an index in order to place a short trade on that ticker. In recent years this strategy has not been as fruitful as it once was. 
+
+![IndexArbImport drawio (1)](https://github.com/jhoward39/IndexArbitrage/assets/70383367/1231f579-d066-4ded-9e11-770a5c7dcfe9)
 
 
 ## Methodology 
-The methodology behind this strategy is that if a stock is removed from S&P 500 the selling of shares by the many funds that track the index moves the price down. If a stock is added, the buy orders that many funds have to make raise the price significantly. The decision to add or remove a stock from the index is made by a committee. This committee is employed by the S&P Dow Jones Indices LLC. 
+The methodology behind this strategy is that if a stock is removed from S&P 500 the selling of shares by the many funds that track the index moves the price down. The decision to add or remove a stock from the index is made by a committee. This committee makes the decision based on market cap, broader sector trends, and is employed by the S&P Dow Jones Indices LLC. 
 
 This is the committee's most recent update to the criteria for entry into the S&P 500:<be>
 >In consideration of overall market conditions, the Index Committee believes a minimum threshold of $14.6 billion for the S&P 500 is appropriate. These ranges are reviewed >quarterly and updated as needed to assure consistency with market conditions. A company meeting the unadjusted company market capitalization criteria must also have a >security level float-adjusted market capitalization that is at least 50% of the respective index's unadjusted company level minimum market capitalization threshold.
