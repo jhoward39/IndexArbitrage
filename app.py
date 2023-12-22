@@ -10,27 +10,22 @@ app = flask.Flask(__name__)
 def index():
    print('Request for index page received')
 
-   return flask.render_template('index.html', stocks_in_danger = get_sp_500_tickers_in_danger(),
-                                 stocks_to_add = get_rising_non_sp_500_tickers(), ticker_to_history = json.dumps(get_pricing_data()))
+   return flask.render_template('index.html', stocks_in_danger = get_sp_500_tickers_in_danger(), ticker_to_history = json.dumps(get_pricing_data()))
 
 def get_sp_500_tickers_in_danger():
-   sql_query = "select Ticker, CompanyName, DateAdded, MarketCap from tbTickers where isSP500member = true and marketcap < 10000000000 order by marketcap"
+   sql_query = """select Ticker, CompanyName, DateAdded, MarketCap 
+                  from tbTickers where isSP500member = true and marketcap < 10000000000 
+                  order by marketcap"""
    data = read_database(sql_query)
-   if not data:
-      return [{"stock":"bad connection to database","marketcap":0}]
-   else: 
-      return data
 
-def get_rising_non_sp_500_tickers():
-   sql_query = "select Ticker, CompanyName, DateAdded, MarketCap from tbTickers where isSP500member = false and marketcap > 20000000000 order by marketcap desc"
-   data = read_database(sql_query)
    if not data:
-      return [{"stock":"bad connection to database","marketcap":0}]
-   else: 
-      return data
+      return [{"stock":"bad connection to database","marketcap":0}] 
+   
+   return data
 
 def get_pricing_data():
-   sql_query = "select Ticker, Date, ClosingPriceAtDate from tbPriceData"
+   sql_query = """select Ticker, Date, ClosingPriceAtDate 
+                  from tbPriceData"""
    data = read_database(sql_query)
    tickers = []
    ticker_to_history = {}

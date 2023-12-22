@@ -37,7 +37,7 @@
             <tbody>
                 {% for stock in stocks_in_danger %}
                 <tr>
-                    <td><a href="https://finance.yahoo.com/quote/{{ stock.ticker|trim }}?p={{ stock.ticker|trim }}&.tsrc=fin-srch" class="link-text">{{ stock.ticker }}</a></td>
+                    <td><a href="https://finviz.com/quote.ashx?t={{ stock.ticker|trim }}&p=d&r=m6" class="link-text">{{ stock.ticker }}</a></td>
                     <td>{{ stock.companyname }}</td>
                     <td>{{ "${:,.2f}".format(stock.marketcap) }}</td>
                     <td>
@@ -53,58 +53,6 @@
                 {% endfor %}
             </tbody>
         </table>
-        <!-- Display the list of stocks that could be added
-    
-        <table class="toggletable">
-            <thead>
-                <tr>
-                    <th>Tickers That Might Be Added To The S&P 500</th>
-                    <th>Name</th>
-                    <th>Marketcap</th>
-                    <th>Price History</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for stock in stocks_to_add %}
-                <tr>
-                    <td>
-                        <a href="https://finance.yahoo.com/quote/{{ stock.ticker|trim }}?p={{ stock.ticker|trim }}&.tsrc=fin-srch" class="link-text">{{stock.ticker }}</a>
-                    </td>
-                    <td>{{ stock.companyname }}</td>
-                    <td>{{ "${:,.2f}".format(stock.marketcap) }}</td>
-                    <td>
-                        <div class="chart-container" id="{{ stock.ticker }}"></div>
-                    </td>
-                    <script>
-                        dateAddedToSP = "1904-01-01";
-                        containerId = "{{ stock.ticker }}";
-                        data = stockData[containerId.trim()]
-                        renderStockChart(dateAddedToSP, data, containerId); 
-                    </script>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table> -->
-        <button id="showAllButton">Show All</button>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const tables = document.querySelectorAll('.toggletable');
-                const changeStateButton = document.getElementById('showAllButton');
-                let isExpanded = false
-                function toggleState() {
-                    tables.forEach(table => {
-                        table.classList.toggle('active', !isExpanded);
-                    });
-
-                    changeStateButton.textContent = isExpanded ? 'Show More' : 'Show Less';
-                    isExpanded = !isExpanded;
-                }
-
-                // Add a click event listener to the button
-                changeStateButton.addEventListener('click', toggleState);
-            });
-        </script>
-        <!-- Disclaimer -->
     </div>
     <div class="bottom-bar">
         <p>&copy; Joseph Howard</p>
