@@ -22,7 +22,6 @@ There are other reasons that stocks can get removed from the S&P, usually merger
 
 In the future, I would like to do an in-depth study of the history of companies that have been removed from the S&P for market capitalization reasons to possibly predict closer to when the index is likely to drop a stock. 
 
-##
 # LINK: https://indexarbitrage.azurewebsites.net/
 ##
 
