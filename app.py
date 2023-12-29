@@ -13,10 +13,32 @@ def index():
    return flask.render_template('index.html', stocks_in_danger = get_sp_500_tickers_in_danger(), ticker_to_history = json.dumps(get_pricing_data()))
 
 def get_sp_500_tickers_in_danger():
-   sql_query = """select Ticker, CompanyName, DateAdded, MarketCap 
-                  from tbTickers where isSP500member = true and marketcap < 10000000000 
-                  order by marketcap"""
+   sql_query = """SELECT 
+                     t.Ticker, 
+                     t.CompanyName, 
+                     t.DateAdded, 
+                     t.MarketCap
+                  FROM 
+                     tbTickersToMarketCapAndName t
+                  JOIN 
+                     tbMonthlyPricingData p_current ON t.Ticker = p_current.Ticker
+                  JOIN 
+                     tbMonthlyPricingData p_added ON t.Ticker = p_added.Ticker 
+                     AND p_added.Date = date_trunc('month', t.DateAdded)::date
+                  WHERE 
+                     t.MarketCap < 10000000000
+                     AND p_current.Date = (
+                        SELECT MAX(Date) 
+                        FROM tbMonthlyPricingData 
+                        WHERE Ticker = t.Ticker
+                     )
+                     AND p_current.ClosingPriceAtDate < p_added.ClosingPriceAtDate
+                  ORDER BY marketcap ASC
+                  """
+   
    data = read_database(sql_query)
+
+   print(data)
 
    if not data:
       return [{"stock":"bad connection to database","marketcap":0}] 
@@ -25,7 +47,7 @@ def get_sp_500_tickers_in_danger():
 
 def get_pricing_data():
    sql_query = """select Ticker, Date, ClosingPriceAtDate 
-                  from tbPriceData"""
+                  from tbMonthlyPricingData"""
    data = read_database(sql_query)
    tickers = []
    ticker_to_history = {}
