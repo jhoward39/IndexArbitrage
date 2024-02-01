@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Arbitrage</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='bull.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="{{ url_for('static', filename='chart.js') }}"></script>
+    <script>
+        const stockData = {{ ticker_to_history|safe }};
+        let dateAddedToSP = "";
+        let containerId = "";
+        let data = [];
+    </script>
+
+</head>
+<body>
+    <div class="background"></div>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h1>Index Arbitrage Dashboard</h1>
+            <a class="button" href="https://github.com/jhoward39/IndexArbitrage/blob/main/README.md" target="_blank">README</a>
+        </div>
+    </nav>
+    <div class="content">
+      <h1>Down For Maitenance Feb 1st-Feb 4th</h1>
+    </div>
+    <div class="bottom-bar">
+        <p>&copy; Joseph Howard</p>
+        <p>** Not Investment Advice **</p>
+    </div>
+</body>
+</html>

@@ -10,7 +10,7 @@ app = flask.Flask(__name__)
 def index():
    print('Request for index page received')
 
-   return flask.render_template('index.html', stocks_in_danger = get_sp_500_tickers_in_danger(), ticker_to_history = json.dumps(get_pricing_data()))
+   return flask.render_template('maintenance.html', stocks_in_danger = get_sp_500_tickers_in_danger(), ticker_to_history = json.dumps(get_pricing_data()))
 
 def get_sp_500_tickers_in_danger():
    sql_query = """SELECT 
